@@ -13,9 +13,9 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { Box, Container } from "@mui/system";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
-const pages = ["Dentistas", "Favoritos", "Contacto"];
+const pages = ["home", "contact", "favs"];
 
 export const Navbar = ({ children }) => {
   console.log(children);
@@ -86,8 +86,12 @@ export const Navbar = ({ children }) => {
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">
-                      <NavLink to={`/${page}`}></NavLink>
-                      {page}
+                      <Link
+                        style={{ textDecoration: "none", color: "white" }}
+                        to={`/${page}`}
+                      >
+                        {page}
+                      </Link>
                     </Typography>
                   </MenuItem>
                 ))}
@@ -119,7 +123,12 @@ export const Navbar = ({ children }) => {
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  {page}
+                  <Link
+                    style={{ textDecoration: "none", color: "white" }}
+                    to={`/${page}`}
+                  >
+                    {page}
+                  </Link>
                 </Button>
               ))}
             </Box>

@@ -5,14 +5,15 @@ import { DentistDetailContainer } from "./Components/Pages/DentistDetail/Dentist
 import { ContactUsContainer } from "./Components/Pages/ContactUs/ContactUs.container";
 import { FavsContainer } from "./Components/Pages/Favs/Favs.container";
 import { Navbar } from "./Components/Layout/NavBar/Navbar";
+import { Login } from "./Components/Pages/Login/Login";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="" element={<h1>Hola</h1>} />
+        <Route path="" element={<Login />} />
         <Route element={<Navbar />} />
-        <Route path="home" element={<DentistsListContainer />} />
+        <Route path="/Home" element={<DentistsListContainer />} />
         <Route path="/dentistDetail/:id" element={<DentistDetailContainer />} />
         <Route path="/contact" element={<ContactUsContainer />} />
         <Route path="/favs" element={<FavsContainer />} />
