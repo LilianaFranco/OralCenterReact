@@ -20,7 +20,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
     "styled-components": "^5.3.9",
-    "sweetalert2": "^11.7.3"
+    "sweetalert2": "^11.7.3",
+    "use-local-storage": "^2.3.6"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

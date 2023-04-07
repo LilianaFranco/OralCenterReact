@@ -1,23 +1,26 @@
 import {
   AppBar,
-  Avatar,
   Button,
   IconButton,
   Menu,
   MenuItem,
   Toolbar,
-  Tooltip,
   Typography,
 } from "@mui/material";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Box, Container } from "@mui/system";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { useTheme } from "@mui/material/styles";
+import { ColorModeContext } from "../../../Context/ThemeContext/ColorModeContext";
+import { DarkMode, LightMode } from "@mui/icons-material";
 
 const pages = ["home", "contact", "favs"];
 
 export const Navbar = ({ children }) => {
+  const theme = useTheme();
+  const colorMode = useContext(ColorModeContext);
   console.log(children);
   const [anchorElNav, setAnchorElNav] = useState();
 
@@ -133,11 +136,13 @@ export const Navbar = ({ children }) => {
               ))}
             </Box>
 
-            <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
-                <Avatar alt="Remy Sharp" src="" />
-              </Tooltip>
-            </Box>
+            <IconButton
+              sx={{ ml: 1 }}
+              onClick={colorMode.toggleColorMode}
+              color="inherit"
+            >
+              {theme.palette.mode === "dark" ? <DarkMode /> : <LightMode />}
+            </IconButton>
           </Toolbar>
         </Container>
       </AppBar>
