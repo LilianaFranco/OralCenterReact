@@ -16,10 +16,7 @@ function App() {
           <Route path="" element={<Login />} />
           <Route element={<Navbar />} />
           <Route path="/Home" element={<DentistsListContainer />} />
-          <Route
-            path="/dentistDetail/:id"
-            element={<DentistDetailContainer />}
-          />
+          <Route path="/dentist/:id" element={<DentistDetailContainer />} />
           <Route path="/contact" element={<ContactUsContainer />} />
           <Route path="/favs" element={<FavsContainer />} />
           <Route path="*" element={<h1>Not found</h1>} />
