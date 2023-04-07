@@ -6,20 +6,26 @@ import { ContactUsContainer } from "./Components/Pages/ContactUs/ContactUs.conta
 import { FavsContainer } from "./Components/Pages/Favs/Favs.container";
 import { Navbar } from "./Components/Layout/NavBar/Navbar";
 import { Login } from "./Components/Pages/Login/Login";
+import { ColorModeProvider } from "./Context/ThemeContext/ColorModeContext";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="" element={<Login />} />
-        <Route element={<Navbar />} />
-        <Route path="/Home" element={<DentistsListContainer />} />
-        <Route path="/dentistDetail/:id" element={<DentistDetailContainer />} />
-        <Route path="/contact" element={<ContactUsContainer />} />
-        <Route path="/favs" element={<FavsContainer />} />
-        <Route path="*" element={<h1>Not found</h1>} />
-        <Route />
-      </Routes>
+      <ColorModeProvider>
+        <Routes>
+          <Route path="" element={<Login />} />
+          <Route element={<Navbar />} />
+          <Route path="/Home" element={<DentistsListContainer />} />
+          <Route
+            path="/dentistDetail/:id"
+            element={<DentistDetailContainer />}
+          />
+          <Route path="/contact" element={<ContactUsContainer />} />
+          <Route path="/favs" element={<FavsContainer />} />
+          <Route path="*" element={<h1>Not found</h1>} />
+          <Route />
+        </Routes>
+      </ColorModeProvider>
     </BrowserRouter>
   );
 }
