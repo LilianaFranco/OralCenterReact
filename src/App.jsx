@@ -8,26 +8,29 @@ import { ColorModeProvider } from "./Context/ThemeContext/ColorModeContext";
 import { Footer } from "./Components/Layout/Footer/Footer";
 import { DentistContextProvider } from "./Context/DentistContext.jsx/DentistContext";
 import { ContactUs } from "./Components/Pages/ContactUs/ContactUs";
+import { FavsContextProvider } from "./Context/FavsContext/FavsContext";
 
 function App() {
   return (
     <BrowserRouter>
       <ColorModeProvider>
         <DentistContextProvider>
-          <Routes>
-            <Route element={<Navbar />}>
-              <Route element={<Footer />}>
-                <Route path="/Home" element={<DentistsListContainer />} />
-                <Route
-                  path="/dentist/:id"
-                  element={<DentistDetailContainer />}
-                />
-                <Route path="/contact" element={<ContactUs />} />
-                <Route path="/favs" element={<FavsContainer />} />
+          <FavsContextProvider>
+            <Routes>
+              <Route element={<Navbar />}>
+                <Route element={<Footer />}>
+                  <Route path="/Home" element={<DentistsListContainer />} />
+                  <Route
+                    path="/dentist/:id"
+                    element={<DentistDetailContainer />}
+                  />
+                  <Route path="/contact" element={<ContactUs />} />
+                  <Route path="/favs" element={<FavsContainer />} />
+                </Route>
+                <Route path="*" element={<h1>Not found</h1>} />
               </Route>
-              <Route path="*" element={<h1>Not found</h1>} />
-            </Route>
-          </Routes>
+            </Routes>
+          </FavsContextProvider>
         </DentistContextProvider>
       </ColorModeProvider>
     </BrowserRouter>

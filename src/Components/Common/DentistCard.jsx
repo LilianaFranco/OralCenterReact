@@ -12,7 +12,8 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const DentistCard = ({ user }) => {
+export const DentistCard = ({ user, favsDispatch, favs }) => {
+  console.log(favs);
   return (
     <div>
       <Card sx={{ maxWidth: 345 }} key={user.id}>
@@ -35,8 +36,17 @@ export const DentistCard = ({ user }) => {
           </CardContent>
         </CardActionArea>
         <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
+          <IconButton
+            aria-label="add to favorites"
+            onClick={() =>
+              favsDispatch({ type: "HANDLE_FAVORITE", payload: user })
+            }
+          >
+            <FavoriteIcon
+              color={
+                favs.some((fav) => fav.id === user.id) ? "error" : "disabled"
+              }
+            />
           </IconButton>
           <Link style={{ textDecoration: "none" }} to={`/dentist/${user.id}`}>
             <Button size="small" color="primary" variant="contained">
