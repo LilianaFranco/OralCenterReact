@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const DentistCard = ({ user }) => {
   return (
@@ -37,9 +38,11 @@ export const DentistCard = ({ user }) => {
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />
           </IconButton>
-          <Button size="small" color="primary" variant="contained">
-            Ver más...
-          </Button>
+          <Link to={`/dentist/${user.id}`}>
+            <Button size="small" color="primary" variant="contained">
+              Ver más...
+            </Button>
+          </Link>
         </CardActions>
       </Card>
     </div>

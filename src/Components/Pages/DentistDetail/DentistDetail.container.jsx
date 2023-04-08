@@ -5,19 +5,23 @@ import { DentistContext } from "../../../Context/DentistContext.jsx/DentistConte
 import { DentistDetail } from "./DentistDetail";
 
 export const DentistDetailContainer = () => {
-  const { dispatch } = useContext(DentistContext);
+  const { state, dispatch } = useContext(DentistContext);
   const { id } = useParams();
 
   useEffect(() => {
-    const getUser = axios.get(
+    const getDentist = axios.get(
       `https://jsonplaceholder.typicode.com/users/${id}`
     );
-    getUser.then((res) => dispatch({ type: "GET_USER", payload: res.data }));
+    getDentist
+      .then((res) => dispatch({ type: "GET_USERS", payload: res.data }))
+      .catch((err) => console.log(err));
   }, []);
+
+  console.log(state.users);
 
   return (
     <div>
-      <DentistDetail />
+      <DentistDetail user={state.users} />
     </div>
   );
 };
