@@ -2,9 +2,9 @@ import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import { DentistCard } from "../../Common/DentistCard";
 
-export const DentistsList = ({ users }) => {
+export const DentistsList = ({ users, favsDispatch, favs }) => {
   //Container for cards
-
+  console.log(favsDispatch);
   function Item(props) {
     const { sx, ...other } = props;
     return (
@@ -56,7 +56,12 @@ export const DentistsList = ({ users }) => {
         >
           {users.map((user) => (
             <Item key={user.id}>
-              <DentistCard key={user.id} user={user} />
+              <DentistCard
+                key={user.id}
+                user={user}
+                favsDispatch={favsDispatch}
+                favs={favs}
+              />
             </Item>
           ))}
         </Box>
