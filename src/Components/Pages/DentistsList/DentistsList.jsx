@@ -1,10 +1,11 @@
-import { Navbar } from "../../Layout/NavBar/Navbar";
+import { DentistCard } from "../../Common/DentistCard";
 
-export const DentistsList = () => {
+export const DentistsList = ({ users }) => {
   return (
     <div>
-      <Navbar />
-      <h2>Soy la lista de dentista</h2>
+      {users.map((user) => {
+        return <DentistCard key={user.id} user={user} />;
+      })}
     </div>
   );
 };
