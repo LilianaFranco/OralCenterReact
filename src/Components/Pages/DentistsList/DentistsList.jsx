@@ -45,7 +45,15 @@ export const DentistsList = ({ users }) => {
   return (
     <div>
       <div style={{ width: "100%" }}>
-        <Box sx={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+            gridTemplateColumns: "repeat(3, 1fr)",
+          }}
+        >
           {users.map((user) => (
             <Item key={user.id}>
               <DentistCard key={user.id} user={user} />
