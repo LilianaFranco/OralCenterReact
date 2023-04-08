@@ -2,12 +2,12 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { DentistsListContainer } from "./Components/Pages/DentistsList/DentistsList.container";
 import { DentistDetailContainer } from "./Components/Pages/DentistDetail/DentistDetail.container";
-import { ContactUsContainer } from "./Components/Pages/ContactUs/ContactUs.container";
 import { FavsContainer } from "./Components/Pages/Favs/Favs.container";
 import { Navbar } from "./Components/Layout/NavBar/Navbar";
 import { ColorModeProvider } from "./Context/ThemeContext/ColorModeContext";
 import { Footer } from "./Components/Layout/Footer/Footer";
 import { DentistContextProvider } from "./Context/DentistContext.jsx/DentistContext";
+import { ContactUs } from "./Components/Pages/ContactUs/ContactUs";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
                   path="/dentist/:id"
                   element={<DentistDetailContainer />}
                 />
-                <Route path="/contact" element={<ContactUsContainer />} />
+                <Route path="/contact" element={<ContactUs />} />
                 <Route path="/favs" element={<FavsContainer />} />
               </Route>
               <Route path="*" element={<h1>Not found</h1>} />
