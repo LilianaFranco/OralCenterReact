@@ -1,10 +1,14 @@
+import { Box } from "@mui/material";
 import React from "react";
-import { Navbar } from "../../Layout/NavBar/Navbar";
+import PropTypes from "prop-types";
+import { DentistCard } from "../../Common/DentistCard";
 
-export const Favs = () => {
+export const Favs = ({ favsState }) => {
   return (
     <div>
-      <h2>Soy la página de favoritos</h2>
+      {favsState.favs.map((e) => (
+        <h1 key={e.id}>{e.name}</h1>
+      ))}
     </div>
   );
 };
