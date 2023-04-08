@@ -38,7 +38,7 @@ export const DentistCard = ({ user }) => {
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />
           </IconButton>
-          <Link to={`/dentist/${user.id}`}>
+          <Link style={{ textDecoration: "none" }} to={`/dentist/${user.id}`}>
             <Button size="small" color="primary" variant="contained">
               Ver más...
             </Button>
